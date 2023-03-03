@@ -3,7 +3,7 @@ import styles from '@/styles/Home.module.css'
 
 const about = () => {
     return (
-        <div>About Page</div>
+        <div className={styles.main}>This is my abput Component</div>
     )
 }
 

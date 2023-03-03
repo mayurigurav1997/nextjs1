@@ -2,15 +2,15 @@ import React from 'react'
 import { useRouter } from "next/router"
 import styles from '@/styles/Home.module.css'
 
-const Post = () => {
+const Slug = () => {
     const router = useRouter()
     console.log(router, "router")
-    const { sno } = router.query
+    const { slug } = router.query
     return (
         <>
-            <div className={styles.main} >Post: {sno}</div>
+            <div className={styles.main} >Post: {slug}</div>
         </>
     )
 }
 
-export default Post
+export default Slug
