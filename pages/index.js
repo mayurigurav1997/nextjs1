@@ -13,12 +13,19 @@ export default function Home() {
   // console.log(styles, "styles")
   return (
     <div className={styles.container}>
-      <Dummy />
+      {/* <Dummy /> */}
       <style jsx>
         {`
         .myspan{
           color:red;
-        }`}
+        }
+        h2{
+          font-size:38px;
+        }
+        h3{
+          font-size:28px;
+        }
+        `}
       </style>
       <Head>
         <title>Welcome to the Next JS</title>
@@ -42,6 +49,12 @@ export default function Home() {
           <span className="myspan dummy">Hunting Coder</span>
         </h1>
 
+        <div className={styles.imgWrapper}>
+          <Image src='/home.avif' alt="Home Image"
+            height={158}
+            width={237}
+            className={styles.myImg} />
+        </div>
 
         <p className={styles.description}>
           A hunting coder by hunting coder
