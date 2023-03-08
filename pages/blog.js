@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '@/styles/Blog.module.css'
 import Link from 'next/link'
 
+
 const blog = () => {
     return (
         <div className={styles.container}>
