@@ -52,25 +52,7 @@ export default function Home() {
           A hunting coder by hunting coder
         </p>
 
-        <h2>Latest Blogs</h2>
-        <div className="blogs">
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2023?</h3>
-            <p>Javascript is the language used to design logic for web.</p>
-          </div>
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2023?</h3>
-            <p>Javascript is the language used to design logic for web.</p>
-          </div>
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2023?</h3>
-            <p>Javascript is the language used to design logic for web.</p>
-          </div>
-          <div className="blogItem">
-            <h3>How to learn Javascript in 2023?</h3>
-            <p>Javascript is the language used to design logic for web.</p>
-          </div>
-        </div>
+
       </main>
     </div>
   )
