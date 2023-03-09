@@ -5,15 +5,20 @@ import * as fs from 'fs';
 export default function handler(req, res) {
     // console.log(req)
     // console.log(res)
-    fs.readFile(`blogdata/${req.query.slug}.json`,
+    // fs.readFile(`blogdata/${req.query.slug}.json`,
+    //     'utf-8',
+    //     (err, data) => {
+    //         if (err) {
+    //             res.status(500).json({ error: "No such blog found" })
+    //         }
+    //         // console.log(req.query);
+    //         console.log(req.query.slug);
+    //         res.status(200).json(JSON.parse(data))
+    //     })
+    fs.readdir(`blogdata`,
         'utf-8',
         (err, data) => {
-            if (err) {
-                res.status(500).json({ error: "No such blog found" })
-            }
-            // console.log(req.query);
-            console.log(req.query.slug);
-            res.status(200).json(JSON.parse(data))
+            console.log("Hello");
+            res.status(200).json(data)
         })
-
 }
