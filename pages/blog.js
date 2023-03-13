@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from '@/styles/Blog.module.css'
 import Link from 'next/link'
 
 
 const blog = () => {
+    useEffect(() => {
+        console.log("useeffect is running")
+        fetch('http://localhost:3000/api/blogs').then((a) => {
+            return a.json();
+        }).then((parsed) => {
+            console.log(parsed)
+        })
+    })
     return (
         <div className={styles.container}>
             <main className={styles.main}>
