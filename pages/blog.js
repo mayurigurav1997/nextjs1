@@ -1,42 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Blog.module.css'
 import Link from 'next/link'
 
 
 const blog = () => {
+    const [blogs, setBlogs] = useState([])
     useEffect(() => {
         console.log("useeffect is running")
         fetch('http://localhost:3000/api/blogs').then((a) => {
             return a.json();
         }).then((parsed) => {
             console.log(parsed)
+            setBlogs(parsed)
         })
-    })
+    }, [])
     return (
         <div className={styles.container}>
             <main className={styles.main}>
+                {blogs.map((blogItem) => {
+                    return <div className={styles.blogItemh3} key={blogItem.slug}>
+                        <Link href={`/blockpost/${blogItem.slug}`}>
+                            <h3 className={styles.blogItemh3}>{blogItem.title}</h3>
+                            <p className={styles.blogItemp}>{blogItem.content.substr(0, 140)}...</p>
+                        </Link>
+                    </div>
+                })}
 
-                <div className="blogs">
-                    <div className={styles.blogItemh3}>
-                        <Link href={'/blockpost/learn-javascript'}>
-                            <h3>How to learn Javascript in 2023?</h3></Link>
-                        <p>Javascript is the language used to design logic for web.</p>
-                    </div>
-                    <div className="blogItem">
-                        <h3>How to learn Javascript in 2023?</h3>
-                        <p>Javascript is the language used to design logic for web.</p>
-                    </div>
-                    <div className="blogItem">
-                        <h3>How to learn Javascript in 2023?</h3>
-                        <p>Javascript is the language used to design logic for web.</p>
-                    </div>
-                    <div className="blogItem">
-                        <h3>How to learn Javascript in 2023?</h3>
-                        <p>Javascript is the language used to design logic for web.</p>
-                    </div>
-                </div>
-            </main>
-        </div>
+            </main >
+        </div >
     )
 }
 
