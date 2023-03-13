@@ -15,7 +15,7 @@ export default function handler(req, res) {
     //         console.log(req.query.slug);
     //         res.status(200).json(JSON.parse(data))
     //     })
-    fs.readdir(`blogdata`,
+    fs.readdir("blogdata",
         'utf-8',
         (err, data) => {
             console.log("Hello");
