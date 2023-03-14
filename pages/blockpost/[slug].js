@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from "next/router"
 import styles from '@/styles/Blockpost.module.css'
 
 const Slug = () => {
-    const router = useRouter()
-    console.log(router, "router")
-    const { slug } = router.query
+    const [blog, setBlog] = useState([])
+    useEffect(() => {
+        const router = useRouter()
+        // console.log(router, "router")
+        const { slug } = router.query
+        fetch(`http://localhost:3000/api/getblog?slug=${slug}`).then((a) => {
+            return a.json();
+        }).then((parsed) => {
+            // console.log(parsed)
+            setBlog(parsed)
+        })
+    }, [])
+
     return (
         <>
             <div className={styles.container}>

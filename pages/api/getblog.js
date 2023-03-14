@@ -15,10 +15,13 @@ export default function handler(req, res) {
     //         console.log(req.query.slug);
     //         res.status(200).json(JSON.parse(data))
     //     })
-    fs.readdir("blogdata",
+    fs.readFile(`blogdata/${req.query.slug}.json`,
         'utf-8',
         (err, data) => {
-            console.log("Hello");
-            res.status(200).json(data)
+            if (err) {
+                res.status(500).json({ error: "No such blog found" })
+            }
+            console.log(req.query.slug);
+            res.status(200).json(JSON.parse(data))
         })
 }

@@ -6,11 +6,11 @@ import Link from 'next/link'
 const blog = () => {
     const [blogs, setBlogs] = useState([])
     useEffect(() => {
-        console.log("useeffect is running")
+        // console.log("useeffect is running")
         fetch('http://localhost:3000/api/blogs').then((a) => {
             return a.json();
         }).then((parsed) => {
-            console.log(parsed)
+            // console.log(parsed)
             setBlogs(parsed)
         })
     }, [])
