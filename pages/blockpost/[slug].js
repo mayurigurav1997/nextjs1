@@ -49,14 +49,6 @@ export async function getStaticProps(context) {
         props: { myBlog: JSON.parse(myBlog) }, // will be passed to the page component as props
     }
 }
-// export async function getServerSideProps(context) {
-//     // console.log(context.query.slug)
-//     const { slug } = context.query
-//     let data = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`)
-//     let myBlog = await data.json();
-//     return {
-//         props: { myBlog }, // will be passed to the page component as props
-//     }
-// }
+
 
 export default Slug

@@ -48,12 +48,4 @@ export async function getStaticProps(context) {
     }
 }
 
-// export async function getServerSideProps(context) {
-//     let data = await fetch('http://localhost:3000/api/blogs')
-//     let allBlogs = await data.json();
-//     return {
-//         props: { allBlogs }, // will be passed to the page component as props
-//     }
-// }
-
 export default blog
