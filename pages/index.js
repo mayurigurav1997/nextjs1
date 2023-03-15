@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -42,10 +42,14 @@ export default function Home() {
         </h1>
 
         <div className={styles.imgWrapper}>
-          <Image src='/home.avif' alt="Home Image"
+          {/* <Image src='/home.avif' alt="Home Image"
             height={158}
             width={237}
-            className={styles.myImg} />
+            className={styles.myImg} /> */}
+          <img src="/home.avif"
+            className={styles.myImg}
+            height={158}
+            width={237} alt="hunting coder" />
         </div>
 
         <p className={styles.description}>
