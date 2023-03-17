@@ -1,17 +1,48 @@
 import React, { useState } from 'react'
 import styles from '@/styles/Contact.module.css'
 
-const handleSubmit = (e) => {
-    e.preventDefault()
-}
-const handleChange = (e) => {
 
-}
 const contact = () => {
     const [name, setname] = useState("")
     const [email, setemail] = useState("")
     const [phone, setphone] = useState("")
     const [desc, setdesc] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(name, email, phone, desc)
+        const data = { name, email, phone, desc }
+        fetch("http://localhost:3000/api/postcontact/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.text())
+            .then((data) => {
+                console.log("Success:", data);
+                alert("Thanks for Contacting")
+                setphone("")
+                setname("")
+                setemail("")
+                setdesc("")
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    }
+    const handleChange = (e) => {
+        if (e.target.name == "phone") {
+            setphone(e.target.value)
+        } else if (e.target.name == "email") {
+            setemail(e.target.value)
+        } else if (e.target.name == "name") {
+            setname(e.target.value)
+        } else if (e.target.name == "desc") {
+            setdesc(e.target.value)
+        }
+    }
     return (
         <div className={styles.container}>
             <h1>Contact Us</h1>
@@ -31,7 +62,7 @@ const contact = () => {
                 </div>
                 <div className={styles.mb3}>
                     <label for="desc">Elbroarate your concern</label>
-                    <textarea className="form-control" placeholder="Write your concern here" id="desc" value={desc} onChange={handleChange}></textarea>
+                    <textarea className="form-control" placeholder="Write your concern here" id="desc" onChange={handleChange} value={desc} name="desc" />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
