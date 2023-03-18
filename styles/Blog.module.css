@@ -17,3 +17,12 @@
   max-width: 45vw;
   margin-bottom: 2rem;
 }
+.btn {
+  color: white;
+  background-color: black;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 9px;
+  font-size: 12px;
+}

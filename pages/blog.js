@@ -24,6 +24,8 @@ const blog = (props) => {
                             <h3 className={styles.blogItemh3}>{blogItem.title}</h3>
                             <p className={styles.blogItemp}>{blogItem.content.substr(0, 140)}...</p>
                         </Link>
+                        <Link href={`/blockpost/${blogItem.slug}`}><button className={styles.btn}>Read More</button>
+                        </Link>
                     </div>
                 })}
             </main >
